@@ -15,7 +15,13 @@ app.get('/', (req, res) => {
 });
 
 app.use(bodyParser.json());
-app.use(cors());
+app.use(cors(
+    {
+        origin:["https://login-signup-lime-gamma.vercel.app/"],
+        methods:["POST","GET"],
+        credentials:true,
+    }
+));
 app.use('/auth', AuthRouter);
 app.use('/products', ProductRouter);
 
